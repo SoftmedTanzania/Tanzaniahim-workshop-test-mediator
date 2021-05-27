@@ -1,0 +1,89 @@
+{
+  "urn": "urn:uuid:bcff1500-beaf-11eb-893b-89f8b9051783",
+  "version": "0.1.0",
+  "name": "Sample Java Mediator",
+  "description": "THis is a sample mediator",
+  "endpoints": [
+    {
+      "name": "Sample Java Mediator Route",
+      "host": "localhost",
+      "port": "3020",
+      "path": "/mediator",
+      "type": "http"
+    }
+  ],
+  "defaultChannelConfig": [
+    {
+      "name": "Sample Java Mediator",
+      "urlPattern": "^/mediator$",
+      "type": "http",
+      "allow": ["samplejavamediator"],
+      "routes": [
+        {
+          "name": "Sample Java Mediator Route",
+          "host": "localhost",
+          "port": "3020",
+          "path": "/mediator",
+          "type": "http",
+          "primary": "true"
+        }
+      ]
+    }
+  ],
+  "configDefs": [
+    {
+      "param": "hprs",
+      "displayName": "HPRS Credentials",
+      "description": "The Open Authentication that generates access token to access HPRS server",
+      "type": "struct",
+      "template": [
+        {
+          "param": "scheme",
+          "displayName": "HPRS Scheme Type",
+          "description": "The base scheme type (e.g. http://)",
+          "type": "string"
+        },
+        {
+          "param": "host",
+          "displayName": "HPRS Host Name",
+          "description": "The base Host (e.g. hprs.moh.go.tz)",
+          "type": "string"
+        },
+        {
+          "param": "port",
+          "displayName": "HPRS Port Number",
+          "description": "The base Port number (e.g. 80)",
+          "type": "string"
+        },
+        {
+          "param": "path",
+          "displayName": "HPRS Path Name",
+          "description": "The base path (e.g. hprs/api/v1/facility/create/)",
+          "type": "string"
+        },
+        {
+          "param": "username",
+          "displayName": "Username",
+          "description": "Username required to access the system",
+          "type": "string"
+        },
+        {
+          "param": "password",
+          "displayName": "Password",
+          "description": "Password required to access the system",
+          "type": "password"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "hprs": {
+      "scheme": "http://",
+      "host": "4fb476737108.ngrok.io",
+      "port": "80",
+      "path": "/hprs/api/v1/facility/create/",
+      "username": "him@moh.go.tz",
+      "password": "PhoneField"
+    }
+  }
+}
